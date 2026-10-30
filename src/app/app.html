@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container">
+    <span class="navbar-brand">SistemaRH</span>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menuPrincipal"
+      aria-controls="menuPrincipal"
+      aria-expanded="false"
+      aria-label="Abrir menu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cadastro" routerLinkActive="active" ariaCurrentWhenActive="page">Cadastro</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/funcionarios"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ariaCurrentWhenActive="page"
+            >Lista de funcionários</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/funcionarios/novo" routerLinkActive="active" ariaCurrentWhenActive="page"
+            >Novo funcionário</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/enderecos" routerLinkActive="active" ariaCurrentWhenActive="page">Endereços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contatos" routerLinkActive="active" ariaCurrentWhenActive="page">Contatos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <router-outlet />
+</main>

@@ -1,0 +1,205 @@
+/* Mobile first: o cartão ocupa a largura disponível e é limitado no desktop */
+.login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kx-space-24);
+  padding-block: var(--kx-space-16);
+  isolation: isolate;
+}
+
+/* Brilho discreto atrás do cartão, só com CSS */
+.login::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 30%, rgb(123 46 255 / 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.login__card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: var(--kx-space-24);
+  overflow: hidden;
+}
+
+/* Linha de identidade no topo do cartão */
+.login__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--kx-primary), var(--kx-secondary), var(--kx-accent));
+}
+
+.login__cabecalho {
+  margin-bottom: var(--kx-space-32);
+  text-align: center;
+}
+
+.login__marca {
+  margin-bottom: var(--kx-space-16);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kx-accent);
+}
+
+.login__titulo {
+  margin-bottom: var(--kx-space-8);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.login__subtitulo {
+  margin-bottom: 0;
+  font-size: 0.9375rem;
+  color: var(--kx-text-secondary);
+}
+
+.login__campo {
+  margin-bottom: var(--kx-space-24);
+}
+
+.form-label {
+  margin-bottom: var(--kx-space-8);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* Campos */
+.kx-input {
+  min-height: 48px;
+  padding: 0 var(--kx-space-16);
+  font-size: 1rem;
+  color: var(--kx-text-primary);
+  background-color: var(--kx-surface-elevated);
+  border: 1px solid var(--kx-border-strong);
+  border-radius: var(--kx-radius);
+  transition: border-color 0.15s ease;
+}
+
+.kx-input::placeholder {
+  color: var(--kx-text-secondary);
+  opacity: 0.8;
+}
+
+/* Substitui o anel do Bootstrap por um outline, que continua visível
+   no modo de alto contraste do Windows */
+.kx-input:focus {
+  color: var(--kx-text-primary);
+  background-color: var(--kx-surface-elevated);
+  border-color: var(--kx-accent);
+  box-shadow: none;
+  outline: 2px solid var(--kx-accent);
+  outline-offset: 2px;
+}
+
+/* Erro: borda mais grossa + mensagem em texto, para não depender só da cor.
+   Remove o ícone padrão do Bootstrap. */
+.kx-input.is-invalid,
+.kx-input.is-invalid:focus {
+  border-color: var(--kx-secondary);
+  border-width: 2px;
+  background-image: none;
+  padding-right: var(--kx-space-16);
+}
+
+.kx-erro {
+  margin: var(--kx-space-8) 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--kx-secondary);
+}
+
+/* Botão primário Kalixto, construído sobre as variáveis do .btn do Bootstrap */
+.btn-kx-primary {
+  --bs-btn-color: var(--kx-text-primary);
+  --bs-btn-bg: var(--kx-primary);
+  --bs-btn-border-color: var(--kx-primary);
+  --bs-btn-hover-color: var(--kx-text-primary);
+  --bs-btn-hover-bg: var(--kx-primary-hover);
+  --bs-btn-hover-border-color: var(--kx-primary-hover);
+  --bs-btn-active-color: var(--kx-text-primary);
+  --bs-btn-active-bg: var(--kx-primary-hover);
+  --bs-btn-active-border-color: var(--kx-accent);
+  --bs-btn-focus-box-shadow: none;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-border-radius: var(--kx-radius);
+
+  min-height: 48px;
+  margin-top: var(--kx-space-8);
+}
+
+.btn-kx-primary:focus-visible {
+  outline: 2px solid var(--kx-accent);
+  outline-offset: 2px;
+}
+
+.btn-kx-primary:active {
+  transform: translateY(1px);
+}
+
+.login__cadastro {
+  margin: var(--kx-space-24) 0 0;
+  text-align: center;
+  color: var(--kx-text-secondary);
+}
+
+.login__cadastro a,
+.login__links a {
+  font-weight: 600;
+  text-underline-offset: 4px;
+  white-space: nowrap; /* evita quebrar "Cadastre-se" no hífen em telas de 320px */
+}
+
+.login__rodape {
+  font-size: 0.875rem;
+}
+
+/* No celular os links ficam empilhados; a partir de 576px, lado a lado */
+.login__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kx-space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.login__links a {
+  display: inline-block;
+  padding: var(--kx-space-8);
+  color: var(--kx-text-secondary);
+}
+
+.login__links a:hover {
+  color: var(--kx-text-primary);
+}
+
+@media (min-width: 576px) {
+  .login {
+    padding-block: var(--kx-space-48);
+  }
+
+  .login__card {
+    padding: var(--kx-space-40);
+  }
+
+  .login__titulo {
+    font-size: 1.75rem;
+  }
+
+  .login__links {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--kx-space-24);
+  }
+}

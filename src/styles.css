@@ -1,0 +1,110 @@
+/* =========================================================
+   Design System Kalixto: tokens globais
+   Bootstrap 5.3 é carregado antes deste arquivo (angular.json),
+   então as regras daqui complementam e sobrescrevem o Bootstrap.
+   ========================================================= */
+
+:root {
+  /* Paleta oficial */
+  --kx-background: #050505;
+  --kx-primary: #7b2eff;
+  --kx-secondary: #ff2daa;
+  --kx-accent: #00d9ff;
+  --kx-surface: #151515;
+  --kx-surface-elevated: #1e1e1e;
+  --kx-text-primary: #ffffff;
+  --kx-text-secondary: #b8b8b8;
+  --kx-border: #383838;
+
+  /* Derivados da paleta, criados para atingir contraste WCAG AA */
+  --kx-primary-hover: #6a1fe8; /* roxo mais escuro para hover/active do botão */
+  --kx-primary-text: #b38bff; /* roxo claro para links em texto (7:1 sobre a surface) */
+  --kx-border-strong: #707070; /* borda de campos (3:1 exigido para componentes) */
+
+  /* Espaçamento: grid de 8pt */
+  --kx-space-8: 8px;
+  --kx-space-16: 16px;
+  --kx-space-24: 24px;
+  --kx-space-32: 32px;
+  --kx-space-40: 40px;
+  --kx-space-48: 48px;
+  --kx-space-64: 64px;
+
+  /* Forma */
+  --kx-radius: 8px;
+  --kx-radius-card: 16px;
+}
+
+/* Variáveis do Bootstrap apontando para os tokens Kalixto.
+   O seletor com :root vence o [data-bs-theme=dark] do Bootstrap. */
+:root[data-bs-theme='dark'] {
+  --bs-body-bg: var(--kx-background);
+  --bs-body-color: var(--kx-text-primary);
+  --bs-secondary-color: var(--kx-text-secondary);
+  --bs-border-color: var(--kx-border);
+  --bs-link-color: var(--kx-primary-text);
+  --bs-link-color-rgb: 179, 139, 255;
+  --bs-link-hover-color: var(--kx-text-primary);
+  --bs-link-hover-color-rgb: 255, 255, 255;
+}
+
+/* Foco visível e consistente em todo o sistema */
+:focus-visible {
+  outline: 2px solid var(--kx-accent);
+  outline-offset: 2px;
+}
+
+/* Superfície reutilizável (cartões e documentos) */
+.kx-surface {
+  background-color: var(--kx-surface);
+  border: 1px solid var(--kx-border);
+  border-radius: var(--kx-radius-card);
+  box-shadow: 0 var(--kx-space-8) var(--kx-space-32) rgb(0 0 0 / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Páginas de documento (Política de Privacidade, Termos e Condições) */
+.kx-documento {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: var(--kx-space-24);
+}
+
+.kx-documento h1 {
+  margin-bottom: var(--kx-space-24);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.kx-documento h2 {
+  margin: var(--kx-space-32) 0 var(--kx-space-8);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.kx-documento p {
+  color: var(--kx-text-secondary);
+}
+
+.kx-aviso {
+  padding: var(--kx-space-16);
+  background-color: var(--kx-surface-elevated);
+  border: 1px solid var(--kx-border);
+  border-left: 4px solid var(--kx-accent);
+  border-radius: var(--kx-radius);
+}
+
+@media (min-width: 576px) {
+  .kx-documento {
+    padding: var(--kx-space-40);
+  }
+}

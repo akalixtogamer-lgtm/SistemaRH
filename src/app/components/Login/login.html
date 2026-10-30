@@ -1,0 +1,71 @@
+<section class="login" aria-labelledby="login-titulo">
+  <div class="login__card kx-surface">
+    <header class="login__cabecalho">
+      <p class="login__marca">SistemaRH</p>
+      <h1 id="login-titulo" class="login__titulo">Acesse sua conta</h1>
+      <p class="login__subtitulo">Informe seu e-mail e sua senha para entrar no sistema de gestão de funcionários.</p>
+    </header>
+
+    <form [formGroup]="form" novalidate>
+      <div class="login__campo">
+        <label for="login-email" class="form-label">E-mail</label>
+        <input
+          id="login-email"
+          type="email"
+          class="form-control kx-input"
+          formControlName="email"
+          placeholder="nome@exemplo.com"
+          autocomplete="email"
+          inputmode="email"
+          required
+          [class.is-invalid]="mostrarErro('email')"
+          [attr.aria-invalid]="mostrarErro('email')"
+          [attr.aria-describedby]="mostrarErro('email') ? 'login-email-erro' : null"
+        />
+        @if (mostrarErro('email')) {
+          <p id="login-email-erro" class="kx-erro">
+            @if (form.controls.email.hasError('required')) {
+              Informe seu e-mail.
+            } @else {
+              Informe um e-mail válido, por exemplo nome&#64;exemplo.com.
+            }
+          </p>
+        }
+      </div>
+
+      <div class="login__campo">
+        <label for="login-senha" class="form-label">Senha</label>
+        <input
+          id="login-senha"
+          type="password"
+          class="form-control kx-input"
+          formControlName="senha"
+          autocomplete="current-password"
+          required
+          [class.is-invalid]="mostrarErro('senha')"
+          [attr.aria-invalid]="mostrarErro('senha')"
+          [attr.aria-describedby]="mostrarErro('senha') ? 'login-senha-erro' : null"
+        />
+        @if (mostrarErro('senha')) {
+          <p id="login-senha-erro" class="kx-erro">Informe sua senha.</p>
+        }
+      </div>
+
+      <button type="button" class="btn btn-kx-primary w-100" (click)="entrar()">Entrar</button>
+    </form>
+
+    <p class="login__cadastro">
+      Não possui uma conta?
+      <a routerLink="/cadastro">Cadastre-se</a>
+    </p>
+  </div>
+
+  <footer class="login__rodape">
+    <nav aria-label="Informações institucionais">
+      <ul class="login__links">
+        <li><a routerLink="/politica-de-privacidade">Política de Privacidade</a></li>
+        <li><a routerLink="/termos-e-condicoes">Termos e Condições</a></li>
+      </ul>
+    </nav>
+  </footer>
+</section>

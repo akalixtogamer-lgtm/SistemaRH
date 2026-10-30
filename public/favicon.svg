@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fundo escuro Kalixto -->
+  <rect width="32" height="32" rx="6" fill="#050505"/>
+  <!-- Losango roxo (primary) com núcleo ciano (accent) -->
+  <path d="M16 4 L28 16 L16 28 L4 16 Z" fill="none" stroke="#7B2EFF" stroke-width="3.5" stroke-linejoin="round"/>
+  <rect x="12.5" y="12.5" width="7" height="7" fill="#00D9FF" transform="rotate(45 16 16)"/>
+</svg>
